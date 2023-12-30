@@ -20,9 +20,12 @@ GROUP BY
 
 --c. Average GPA by Course:
 SELECT
-   CourseID,
-    AVG(GPA) as Average_Gpa
+    c.CourseID,
+    c.CourseName,
+    AVG(e.GPA) AS Average_Gpa
 FROM 
-    enrollment
+    enrollment e
+    INNER JOIN course c ON e.CourseID = c.CourseID
 GROUP BY 
-    CourseID;
+    c.CourseID, c.CourseName;
+
