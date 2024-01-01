@@ -36,10 +36,10 @@
       ```
       DepartmentName	StudentName
         Art	                2
-        Computer Science	2
+        Computer Science	  2
         Engineering	        2
         Mathematics	        2
-        Music	            2
+        Music	              2
         Physics	            2
 
       ```
@@ -71,9 +71,9 @@
         CourseId	CourseName	           AvgGpa
             1	Database Management	        3.8
             2	Statistics	                4
-            3	Organic Chemistry	        3.5
-            4	Cell Biology	            3.9
-            5	Medieval History	        3.7
+            3	Organic Chemistry	          3.5
+            4	Cell Biology	              3.9
+            5	Medieval History	          3.7
             6	Shakespearean Literature    3.2
             7	Microeconomics	            4
             8	Cognitive Psychology        3.6
@@ -104,10 +104,10 @@
       ```sql
       DepartmentId	DepartmentName	EnrollmentCount
         1	    Computer Science	            2
-        2	    Mathematics	                    2
-        3	    Physics	                        2
-        4	    Engineering	                    2
-        5	    Art	                            2
+        2	    Mathematics	                  2
+        3	    Physics	                      2
+        4	    Engineering	                  2
+        5	    Art	                          2
         6	    Music	                        2
 
       ```
@@ -130,12 +130,12 @@
       AcadimicYear	DepartmentName	EnrollmentCount
             2021-2022	Art	                1
             2021-2022	Engineering	        1
-            2021-2022	Music	            1
+            2021-2022	Music	              1
             2022-2023	Art	                1
-            2022-2023	Computer Science	2
+            2022-2023	Computer Science	  2
             2022-2023	Engineering	        1
             2022-2023	Mathematics	        2
-            2022-2023	Music	            1
+            2022-2023	Music	              1
             2022-2023	Physics	            2
 
       ```
@@ -159,22 +159,22 @@
       **Output:**
       ```sql
       CourseId CourseName AcadimicYear DepartmentId	DepartmentName EnrollmentCount
-            1	Database Management	2021-2022	   4	        Engineering	    1
-            1	Database Management	2022-2023	   1	        ComputerScience 1
-            2	Statistics	        2021-2022	   5	        Art	            1
-            2	Statistics      	2021-2022	   6        	Music	        1
-            2	Statistics      	2022-2023	   2	        Mathematics	    1
-            3	Organic Chemistry	2022-2023	   3	        Physics	        1
-            4	Cell Biology	    2022-2023	   4	        Engineering	    1
-            5	Medieval History	2022-2023	   5	        Art	            1
-            6	Literature	        2022-2023	   6	        Music	        1
-            7	Microeconomics	    2022-2023	   1	        ComputerScience	1
-            8   Psychology	        2022-2023	   2	        Mathematics	    1
-            9   Engineering	        2022-2023	   3	        Physics	        1
+            1	Database Management	2021-2022	   4	        Engineering	      1
+            1	Database Management	2022-2023	   1	        ComputerScience   1
+            2	Statistics	        2021-2022	   5	        Art	              1
+            2	Statistics      	  2021-2022    6        	Music	            1
+            2	Statistics      	  2022-2023	   2	        Mathematics	      1
+            3	Organic Chemistry	  2022-2023	   3	        Physics	          1
+            4	Cell Biology	      2022-2023	   4	        Engineering	      1
+            5	Medieval History	  2022-2023	   5	        Art	              1
+            6	Literature	        2022-2023	   6	        Music	            1
+            7	Microeconomics	    2022-2023	   1	        ComputerScience	  1
+            8 Psychology	        2022-2023	   2	        Mathematics	      1
+            9 Engineering	        2022-2023	   3	        Physics	          1
 
       ```
 
 # **Result Reports with Charts or Graphs**
   * Power BI Visualization
 
-    Utilizing the magic of Power BI, we've seamlessly connected our database to create an immersive experience of our data. The Visuals directory houses a captivating dataVisualization.pbix file, a treasure trove of multiple graphs and diagrams. These visuals not only bring our data to life but also enhance its analytical depth. Dive into the world of insights as each graph unfolds a unique perspective, making your data exploration not just informative but visually engaging. Unleash the power of visualization with a simple click on our Power BI project, and let the data tell its story! 📊✨
+    Utilizing the magic of Power BI, we've seamlessly connected our database to create an immersive experience of our data. The Visuals directory houses a captivating data visualization.pbix file, a treasure trove of multiple graphs and diagrams. These visuals not only bring our data to life but also enhance its analytical depth. Dive into the world of insights as each graph unfolds a unique perspective, making your data exploration not just informative but visually engaging. Unleash the power of visualization with a simple click on our Power BI project, and let the data tell its story! 📊✨
