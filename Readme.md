@@ -32,18 +32,8 @@
       JOIN student s ON s.DepartmentID = d.DepartmentID
       GROUP BY d.DepartmentName;
       ```
-      **Output:**
-      ```
-      DepartmentName	StudentName
-        Art	                2
-        Computer Science	  2
-        Engineering	        2
-        Mathematics	        2
-        Music	              2
-        Physics	            2
 
-      ```
-
+      ![Alt text](image.png)
     - **Total enrollment by year**
       ```sql
       --b. Total Enrollment by Year:
@@ -51,14 +41,8 @@
       FROM enrollment
       GROUP BY AcademicYear;
       ```
-      **Output:**
-      ```
-      AcademicYear	Total_Enroliment
-        2021-2022	       3
-        2022-2023	       9
 
-      ```
-
+      ![Alt text](image-1.png)
     - **Average GPA by course**
       ```sql
       --c. Average GPA by Course:
@@ -66,20 +50,7 @@
       FROM enrollment
       GROUP BY CourseID;
       ```
-      **Output:**
-      ```sql
-        CourseId	CourseName	           AvgGpa
-            1	Database Management	        3.8
-            2	Statistics	                4
-            3	Organic Chemistry	          3.5
-            4	Cell Biology	              3.9
-            5	Medieval History	          3.7
-            6	Shakespearean Literature    3.2
-            7	Microeconomics	            4
-            8	Cognitive Psychology        3.6
-            9	Mechanical Engineering      3.9
-
-      ```
+      ![Alt text](image-2.png)
 
 # **Query Operations (Breakdown, Rollup, Cube)**
   * Write SQL queries to perform breakdown, rollup, and cube operations.
@@ -100,18 +71,9 @@
       GROUP BY
         d.DepartmentID, d.DepartmentName;
       ```
-      **Output:**
-      ```sql
-      DepartmentId	DepartmentName	EnrollmentCount
-        1	    Computer Science	            2
-        2	    Mathematics	                  2
-        3	    Physics	                      2
-        4	    Engineering	                  2
-        5	    Art	                          2
-        6	    Music	                        2
+         ![Alt text](image-3.png)
 
-      ```
-    
+      
     - **Rollup of enrollment by year and department**
       ```sql
       USE UniversityDB;
@@ -122,59 +84,28 @@
       FROM enrollment e
       JOIN student s ON e.StudentID = s.StudentID
       JOIN department d ON s.DepartmentID = d.DepartmentID
-      GROUP BY e.AcademicYear, d.DepartmentName
+      GROUP BY ROLLUP(e.AcademicYear, d.DepartmentName)
       ORDER BY e.AcademicYear, d.DepartmentName;
       ```
-      **Output:**
-      ```sql
-      AcadimicYear	DepartmentName	EnrollmentCount
-            2021-2022	Art	                1
-            2021-2022	Engineering	        1
-            2021-2022	Music	              1
-            2022-2023	Art	                1
-            2022-2023	Computer Science	  2
-            2022-2023	Engineering	        1
-            2022-2023	Mathematics	        2
-            2022-2023	Music	              1
-            2022-2023	Physics	            2
-
-      ```
-    
-    - **Cube of enrollment by course, year, and department**
-      ```sql
-      USE UniversityDB;
-      SELECT 
-          c.CourseID, 
-          CourseName, 
-          AcademicYear, 
-          d.DepartmentID, 
-          DepartmentName,
-          COUNT(DISTINCT EnrollmentID) AS EnrollmentCount
-      FROM enrollment e
-      JOIN student s ON e.StudentID = s.StudentID
-      JOIN department d ON s.DepartmentID = d.DepartmentID
-      JOIN course c ON e.CourseID = c.CourseID
-      GROUP BY c.CourseID, CourseName, AcademicYear, d.DepartmentID, DepartmentName;
-      ```
-      **Output:**
-      ```sql
-      CourseId CourseName AcadimicYear DepartmentId	DepartmentName EnrollmentCount
-            1	Database Management	2021-2022	   4	        Engineering	      1
-            1	Database Management	2022-2023	   1	        ComputerScience   1
-            2	Statistics	        2021-2022	   5	        Art	              1
-            2	Statistics      	  2021-2022    6        	Music	            1
-            2	Statistics      	  2022-2023	   2	        Mathematics	      1
-            3	Organic Chemistry	  2022-2023	   3	        Physics	          1
-            4	Cell Biology	      2022-2023	   4	        Engineering	      1
-            5	Medieval History	  2022-2023	   5	        Art	              1
-            6	Literature	        2022-2023	   6	        Music	            1
-            7	Microeconomics	    2022-2023	   1	        ComputerScience	  1
-            8 Psychology	        2022-2023	   2	        Mathematics	      1
-            9 Engineering	        2022-2023	   3	        Physics	          1
-
-      ```
-
+         ![Alt text](image-4.png)
+     - **Cube of enrollment by course, year, and department**
+        ```sql
+        USE UniversityDB;
+        SELECT 
+            c.CourseID, 
+            CourseName, 
+            AcademicYear, 
+            d.DepartmentID, 
+            DepartmentName,
+            COUNT(DISTINCT EnrollmentID) AS EnrollmentCount
+        FROM enrollment e
+        JOIN student s ON e.StudentID = s.StudentID
+        JOIN department d ON s.DepartmentID = d.DepartmentID
+        JOIN course c ON e.CourseID = c.CourseID
+        GROUP BY CUBE(c.CourseID, CourseName, AcademicYear, d.DepartmentID, DepartmentName)
+        ```
+         ![Alt text](image-5.png)
 # **Result Reports with Charts or Graphs**
   * Power BI Visualization
 
-    Utilizing the magic of Power BI, we've seamlessly connected our database to create an immersive experience of our data. The Visuals directory houses a captivating data visualization.pbix file, a treasure trove of multiple graphs and diagrams. These visuals not only bring our data to life but also enhance its analytical depth. Dive into the world of insights as each graph unfolds a unique perspective, making your data exploration not just informative but visually engaging. Unleash the power of visualization with a simple click on our Power BI project, and let the data tell its story! 📊✨
+    Utilizing the magic of Power BI, we've seamlessly connected our database to create an immersive experience of our data. The Visuals directory houses a captivating dataVisualization.pbix file, a treasure trove of multiple graphs and diagrams. These visuals not only bring our data to life but also enhance its analytical depth. Dive into the world of insights as each graph unfolds a unique perspective, making your data exploration not just informative but visually engaging. Unleash the power of visualization with a simple click on our Power BI project, and let the data tell its story! 📊✨
